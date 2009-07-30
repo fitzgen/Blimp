@@ -1,0 +1,14 @@
+{% extends 'blimp/base.html' %}
+
+{% block content %}
+
+{% for post in post_list %}
+    <div class="post-preview">
+        <dl>
+            <dt>{{ post.pub_date }}</dt>
+            <dd>{{ post.content }}</dd>
+        </dl>
+    </div>
+{% endfor %}
+
+{% endblock %}
