@@ -22,6 +22,7 @@ div#wrap {
     margin:0 auto;
     border-left:.5em solid #DDFFEE;
     border-right:.5em solid #DDFFEE;
+    border-bottom:.5em solid #DDFFEE;
     padding:1.5em 1em;
     background-color:#EEFFFF;
     clear:both;
