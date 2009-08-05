@@ -2,11 +2,16 @@
 
 {% block content %}
 
-<dl class="post-preview">
+<ul class="post-preview">
 {% for post in object_list %}
-    <dt>{{ post.pub_date }}</dt>
-    <dd>{{ post.content|removetags:"script iframe frame"|safe }}</dd>
+    <li>
+        <h2>{{ post.title|title }}</h2>
+        <p>by <a href="{% url blimp_index %}">Nick Fitzgerald</a> on {{ post.pub_date }}.</p>
+        <div class="post-content">
+            {{ post.content|removetags:"script iframe frame"|safe }}
+        </div>
+    </li>
 {% endfor %}
-</dl>
+</ul>
 
 {% endblock %}
