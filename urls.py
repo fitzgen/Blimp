@@ -7,17 +7,14 @@ feeds = {
     "latest-rss": RssLatestPosts,
 }
 
+info_dict = {
+    "queryset": Post.objects.filter(is_deleted=False,
+                                    is_published=True).order_by("-pub_date")
+}
+
 urlpatterns = patterns('',
-    url(r'^$', "django.views.generic.list_detail.object_list", 
-        {"queryset": 
-             Post.objects.filter(is_deleted=False,
-                                 is_published=True).order_by("-pub_date")},
-        name="blimp_index"),
-    url(r'^(?P<object_id>\d+)/$', "django.views.generic.list_detail.object_detail", 
-        {"queryset": 
-             Post.objects.filter(is_deleted=False,
-                                 is_published=True).order_by("-pub_date")},
-        name="blimp_detail"),
+    url(r'^$', "django.views.generic.list_detail.object_list", info_dict, name="blimp_index"),
+    url(r'^(?P<object_id>\d+)/$', "django.views.generic.list_detail.object_detail", info_dict, name="blimp_detail"),
 
     # feeds
     url(r'^feeds/(?P<url>.*)/$', 'django.contrib.syndication.views.feed', {'feed_dict': feeds}),
