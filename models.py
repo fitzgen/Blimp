@@ -1,4 +1,5 @@
 from django.db import models
+from django.core.urlresolvers import reverse
 
 class Post(models.Model):
     """A blog post or entry or whatever you want to call it."""
@@ -11,3 +12,6 @@ class Post(models.Model):
                                      blank=True,
                                      null=True)
     pub_date = models.DateField()
+
+    def get_absolute_url(self):
+        return reverse("blimp_detail", args=[self.id,])
