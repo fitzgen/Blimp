@@ -1,0 +1,79 @@
+body, html {
+    font-size:1em;
+    font-family: Georgia, Geneva, serif;
+    line-height: 1.5;
+    background-color:#EEFFEE;
+}
+
+h2 a {
+    font-weight:bold;
+    color:#000000;
+    text-decoration:none;
+    margin:1.5em 0;
+    border-bottom:1px solid #AABBAA;
+}
+
+h2 a:hover {
+    border-bottom:1px solid #000000;
+}
+
+div#wrap {
+    width:33em;
+    margin:0 auto;
+    border-left:.5em solid #DDFFEE;
+    border-right:.5em solid #DDFFEE;
+    padding:1.5em 1em;
+    background-color:#EEFFFF;
+    clear:both;
+}
+
+abbr {
+    letter-spacing:.05em;
+    border-bottom:.1em dotted #AAAAAA;
+}
+
+blockquote {
+    margin: 3em;
+}
+
+p {
+    margin:1.5em 0;
+}
+
+/******************** header ***************************/
+div#header-bar {
+    width:38em;
+    margin:0 auto;
+    background-color:#DDFFEE;
+    height:2em;
+    -moz-border-radius-bottomleft: .5em;
+    -moz-border-radius-bottomright: .5em;
+    -webkit-border-bottom-right-radius: .5em;
+    -webkit-border-bottom-left-radius: .5em;
+}
+
+div#header-bar ul li a {
+    float:left;
+    line-height:2em;
+    padding: 0 2.5em;
+    color:#000000;
+    text-decoration:none;
+}
+
+div#header-bar ul li a:hover {
+    border-top:.25em solid #AABBAA;
+    line-height:1.5;
+    padding-bottom:.25em;
+}
+
+/******************* index page ***************************/
+div#wrap ul.post-preview li {
+    margin:.75em 0;
+    padding:.75em 0;
+    border-bottom:.25em solid #DDFFEE;
+}
+
+p.post-info a,
+p.post-info {
+    color: #88BBAA;
+}
