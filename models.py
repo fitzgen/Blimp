@@ -14,4 +14,4 @@ class Post(models.Model):
     pub_date = models.DateField()
 
     def get_absolute_url(self):
-        return reverse("blimp_detail", args=[self.id,])
+        return "".join(["http://fitzgeraldnick.com", reverse("blimp_detail", args=[self.id,])])
