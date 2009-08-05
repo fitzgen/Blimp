@@ -1,24 +1,29 @@
 body, html {
-    font-size:1em;
-    font-family: Georgia, Geneva, serif;
+    font-size:.95em;
+    font-family: Helvetica, Verdana, sans-serif;
     line-height: 1.5;
     background-color:#EEFFEE;
 }
 
-h2 a {
-    font-weight:bold;
+a:visited,
+a:active,
+a {
     color:#000000;
     text-decoration:none;
-    margin:1.5em 0;
     border-bottom:1px solid #AABBAA;
 }
 
-h2 a:hover {
+a:hover {
     border-bottom:1px solid #000000;
 }
 
+h2 a {
+    font-weight:bold;
+    margin:1.5em 0;
+}
+
 div#wrap {
-    width:33em;
+    width:39em;
     margin:0 auto;
     border-left:.5em solid #DDFFEE;
     border-right:.5em solid #DDFFEE;
@@ -43,7 +48,7 @@ p {
 
 /******************** header ***************************/
 div#header-bar {
-    width:38em;
+    width:44em;
     margin:0 auto;
     background-color:#DDFFEE;
     height:2em;
@@ -59,28 +64,40 @@ div#header-bar ul {
 
 div#header-bar ul li a {
     float:left;
-    line-height:2em;
+    line-height:200%;
     padding: 0 1.5em;
     color:#000000;
     text-decoration:none;
+    border-bottom:0;
 }
 
 div#header-bar ul li a:hover {
-    border-top:.25em solid #AABBAA;
-    line-height:1.5;
-    padding-bottom:.25em;
+    border-top:.28em solid #AABBAA;
+    line-height:150%;
+    padding-bottom:.22em;
 }
 
 /******************* index page ***************************/
-div#wrap ul.post-preview li {
+div#wrap ul.post-list li.post {
     margin:.75em 0;
     padding:.75em 0;
     border-bottom:.25em solid #DDFFEE;
+    clear:both;
 }
 
-p.post-info a,
 p.post-info {
     color: #88BBAA;
+    font-size:.75em;
+    float:right;
+}
+
+div.post-content ul li {
+    list-style-type:square;
+    margin-left:2em;
+}
+
+div.post-content ol li {
+    list-style-type:lower-roman;
 }
 
 /*************** Error handling styles *****************/

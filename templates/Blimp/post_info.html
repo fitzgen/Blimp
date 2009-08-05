@@ -1,0 +1,10 @@
+
+<li class="post">
+    <h2 class="post-title">
+        <a href="{% url blimp_detail object.id %}">{{ object.title|title }}</a>
+    </h2>
+    <div class="post-content">
+        {{ object.content|removetags:"script iframe frame"|safe }}
+    </div>
+    <p class="post-info">by <a href="{% url blimp_index %}">Nick Fitzgerald</a> on {{ object.pub_date|date:"D M d, Y" }}.</p>
+</li>
