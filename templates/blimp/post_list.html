@@ -2,13 +2,11 @@
 
 {% block content %}
 
-{% for post in post_list %}
-    <div class="post-preview">
-        <dl>
-            <dt>{{ post.pub_date }}</dt>
-            <dd>{{ post.content }}</dd>
-        </dl>
-    </div>
+<dl class="post-preview">
+{% for post in object_list %}
+    <dt>{{ post.pub_date }}</dt>
+    <dd>{{ post.content|removetags:"script iframe frame"|safe }}</dd>
 {% endfor %}
+</dl>
 
 {% endblock %}
