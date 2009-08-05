@@ -5,7 +5,7 @@
 
         <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.7.0/build/reset/reset-min.css" />
         <style>
-            {% include "blimp/base.css" %}
+            {% include "Blimp/base.css" %}
         </style>
 
         <link rel="alternate" type="application/rss+xml"  href="{% url blimp_index %}feeds/latest-rss/" title="Latest entries - RSS" />
@@ -19,6 +19,9 @@
                 </li>
                 <li>
                     <a href="{% url blimp_index %}">Weblog</a>
+                </li>
+                <li>
+                <a href="http://www.google.com/reader/shared/fitzgen">Links</a>
                 </li>
                 <li>
                 <a href="{% url blimp_contact %}">Contact</a>
