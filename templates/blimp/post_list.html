@@ -5,8 +5,10 @@
 <ul class="post-preview">
 {% for post in object_list %}
     <li>
-        <h2>{{ post.title|title }}</h2>
-        <p>by <a href="{% url blimp_index %}">Nick Fitzgerald</a> on {{ post.pub_date }}.</p>
+        <h2 class="post-title">
+            <a href="{% url blimp_detail post.id %}">{{ post.title|title }}</a>
+        </h2>
+        <p class="post-info">by <a href="{% url blimp_index %}">Nick Fitzgerald</a> on {{ post.pub_date }}.</p>
         <div class="post-content">
             {{ post.content|removetags:"script iframe frame"|safe }}
         </div>
