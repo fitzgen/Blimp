@@ -53,13 +53,13 @@ div#header-bar {
 }
 
 div#header-bar ul {
-    margin:0 1.5em;
+    margin:0 1em;
 }
 
 div#header-bar ul li a {
     float:left;
     line-height:2em;
-    padding: 0 1em;
+    padding: 0 1.5em;
     color:#000000;
     text-decoration:none;
 }
