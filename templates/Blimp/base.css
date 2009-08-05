@@ -82,3 +82,20 @@ p.post-info a,
 p.post-info {
     color: #88BBAA;
 }
+
+/*************** Error handling styles *****************/
+div#error h1 {
+    font-size:15em;
+    text-align:center;
+}
+
+div#error h3 {
+    font-size:3em;
+    text-transform:uppercase;
+    text-align:center;
+}
+
+div#error p {
+    text-align:center;
+    font-family:Helvetica, sans-serif;
+}
