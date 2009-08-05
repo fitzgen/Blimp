@@ -52,10 +52,14 @@ div#header-bar {
     -webkit-border-bottom-left-radius: .5em;
 }
 
+div#header-bar ul {
+    margin:0 1.5em;
+}
+
 div#header-bar ul li a {
     float:left;
     line-height:2em;
-    padding: 0 2.5em;
+    padding: 0 1em;
     color:#000000;
     text-decoration:none;
 }
