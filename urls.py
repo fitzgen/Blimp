@@ -16,7 +16,7 @@ urlpatterns = patterns('',
     url(r'^$', "django.views.generic.list_detail.object_list", info_dict, name="blimp_index"),
     url(r'^(?P<object_id>\d+)/$', "django.views.generic.list_detail.object_detail", info_dict, name="blimp_detail"),
 
-    # static/direct-to-template
+    # direct-to-template
     url(r'^contact/$', "django.views.generic.simple.direct_to_template", {"template": "Blimp/contact.html"}, name="blimp_contact"),
 
     # feeds
