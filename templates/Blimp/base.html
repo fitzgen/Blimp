@@ -4,6 +4,7 @@
         <title>{% block full_title %}{% block title %}{% endblock %}Nick Fitzgerald @ fitzgeraldnick.com{% endblock %}</title>
 
         <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.7.0/build/reset/reset-min.css" />
+        <link rel="stylesheet" type="text/css" href="http://fitzgeraldnick.com/weblog/static/sh_style.css" />
         <style>
             {% include "Blimp/base.css" %}
         </style>
@@ -47,5 +48,14 @@
             var pageTracker = _gat._getTracker("UA-10103011-1");
             pageTracker._trackPageview();
         } catch(err) {}</script>
+
+        {# Syntax Highlighting #}
+        <script type="text/javascript" src="http://fitzgeraldnick.com/weblog/static/sh_main.min.js"></script>
+        <script type="text/javascript" src="http://fitzgeraldnick.com/weblog/static/sh_html.min.js"></script>
+        <script type="text/javascript" src="http://fitzgeraldnick.com/weblog/static/sh_javascript.min.js"></script>
+        <script type="text/javascript" src="http://fitzgeraldnick.com/weblog/static/sh_python.js"></script>
+        <script type="text/javascript">
+            sh_highlightDocument();
+        </script>
     </body>
 </html>
