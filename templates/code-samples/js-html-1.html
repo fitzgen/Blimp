@@ -1,0 +1,45 @@
+<html>
+<body>
+    <form>
+        Drive the car <input type="text" width="10" id="myCar-miles" /> miles. <input type="submit" value="Drive!" id="myCar-submit" />
+    </form>
+    <div id="myCar">
+        <ul> <!-- Hard coding the first render of the car is BAD -->
+            <li>The car is a Toyota Corolla</li>
+            <li>There is 10 gallons of gas in the tank</li>
+            <li>The car gets 20 miles per gallon</li>
+            <li>The car has driven 0 miles</li>
+        </ul>
+    </div>
+    <script>
+    
+    var type = "Toyota Corolla";
+    var gas = 10;
+    var mpg = 20
+    var driven = 0;
+    
+    function driveCar(e) {
+        var driveLength = parseFloat(document.getElementById("myCar-miles").value);
+        
+        gas = gas - ( driveLength / mpg );
+        driven = driven + driveLength;
+        
+        // build html markup in the middle of the code. THIS IS BAD! WE DON'T WANT THIS!
+        var html = "<ul>";
+        html = html + "<li>The car is a " + type + "</li>";
+        html = html + "<li>There is " + gas + " gallons of gas in the tank</li>";
+        html = html + "<li>The car gets " + mpg + " miles per gallon</li>";
+        html = html + "<li>The car has driven " + driven + " miles</li>";
+        html = html + "</ul>";
+        document.getElementById("myCar").innerHTML = html;
+        
+        // prevent the browser from posting data anywhere
+        e.preventDefault();
+    }
+    
+    // override default form behavior by binding event handler
+    document.getElementById("myCar-submit").onclick = driveCar;
+        
+    </script>
+</body>
+</html>

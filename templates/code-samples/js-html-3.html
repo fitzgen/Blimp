@@ -1,0 +1,60 @@
+<html>
+<body>
+    <form>
+        <input type="submit" value="Add a new car!" id="add-new-car" />
+    </form>
+    <script>
+    function Car(type, gas, id) {
+        this.type = type;
+        this.gas = gas;
+        this.id = id;
+        this.milesPerGallon = 20;
+        this.milesDriven = 0;
+        
+        this.drive = function(miles) {
+            this.gas = this.gas - ( miles / this.milesPerGallon );
+            this.milesDriven = this.milesDriven + miles;
+        };
+        
+        this.bindHandlers = function() {
+            (function(obj) {
+                document.getElementById([obj.id, "-submit"].join("")).onclick = function(e) {
+                    obj.drive(parseFloat(document.getElementById([obj.id,"-miles"].join("")).value));
+                    obj.render();
+                    return false;
+                };
+            })(this);
+        };
+        
+        this.render = function() {
+            var innerHtml =  ["<form>",
+                              "    <input type='text' id='", this.id, "-miles' />",
+                              "    <input type='submit' value='Drive!' id='", this.id, "-submit' />",
+                              "</form>",
+                              "<ul>",
+                              "    <li>The car is a ", this.type, "</li>",
+                              "    <li>There is ", this.gas, " gallons of gas in the tank</li>",
+                              "    <li>The car gets ", this.milesPerGallon, " miles per gallon",
+                              "    <li>The car has driven ", this.milesDriven, " miles</li>",
+                              "</ul>"].join("");
+            document.getElementById(this.id).innerHTML = innerHtml;
+            this.bindHandlers();
+        };
+        
+        // initial render
+        var div = document.createElement("div");
+        div.id = this.id;
+        document.body.appendChild(div);   
+        this.render();
+    }
+    
+    document.getElementById("add-new-car").onclick = function(e) {
+        e.preventDefault();
+        var type = prompt("What type of car?");
+        var gas = prompt("How much gas is in it?");
+        var id = prompt("What unique id should it have?");
+        new Car(type, gas, id);
+    };
+    </script>
+</body>
+</html>

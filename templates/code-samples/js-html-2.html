@@ -1,0 +1,50 @@
+<html>
+<body>
+    <form>
+        Drive the car <input type="text" width="10" id="myCar-miles" /> miles. <input type="submit" value="Drive!" id="myCar-submit" />
+    </form>
+    <div id="myCar">
+    </div>
+    <script>
+    // car object constructor
+    function Car(type, gas, id) {
+        this.type = type;
+        this.gas = gas;
+        this.milesPerGallon = 20;
+        this.milesDriven = 0;
+        this.drive = function(miles) {
+            this.gas = this.gas - ( miles / this.milesPerGallon );
+            this.milesDriven = this.milesDriven + miles;
+            this.render();
+        };
+        
+        // The render method!
+        this.render = function() {
+            var html =  ["<ul>",
+                         "<li>The car is a ", this.type, "</li>",
+                         "<li>There is ", this.gas, " gallons of gas in the tank</li>",
+                         "<li>The car gets ", this.milesPerGallon, " miles per gallon",
+                         "<li>The car has driven ", this.milesDriven, " miles</li>",
+                         "</ul>"].join("");
+            document.getElementById("myCar").innerHTML = html;
+        };
+    }
+
+    // make a Toyota Corolla with 10 gallons of gas in the tank
+    var myCar = new Car("Toyota Corolla", 10, "myCar");
+    
+    // much cleaner event handler
+    function driveCar(e) {
+        myCar.drive(parseFloat(document.getElementById("myCar-miles").value));
+        e.preventDefault();
+    }
+
+    // notice we changed the id of the submit button, and a bunch of other ids
+    document.getElementById("myCar-submit").onclick = driveCar;
+    
+    // add the intial rendering
+    myCar.render();
+        
+    </script>
+</body>
+</html>

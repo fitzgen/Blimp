@@ -67,6 +67,10 @@ h3.question {
     font-size:.8em;
 }
 
+h3.question code {
+    font-style:none;
+}
+
 /******************** header ***************************/
 div#header-bar {
     width:44em;
