@@ -5,6 +5,14 @@ body, html {
     background-color:#EEFFEE;
 }
 
+strong {
+    font-weight:bold;
+}
+
+em {
+    font-style:italic;
+}
+
 a:visited,
 a:active,
 a {
@@ -42,8 +50,21 @@ blockquote {
     margin: 3em;
 }
 
+h3,
+pre,
 p {
     margin:1.5em 0;
+}
+
+pre {
+    overflow:auto;
+}
+
+h3.question {
+    text-transform:uppercase;
+    font-style:italic;
+    color:#777;
+    font-size:.8em;
 }
 
 /******************** header ***************************/
