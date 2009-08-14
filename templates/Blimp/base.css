@@ -36,7 +36,7 @@ div#wrap {
     border-left:.5em solid #DDFFEE;
     border-right:.5em solid #DDFFEE;
     border-bottom:.5em solid #DDFFEE;
-    padding:1.5em 1em;
+    padding:1.5em 3em;
     background-color:#EEFFFF;
     clear:both;
 }
@@ -73,7 +73,7 @@ h3.question code {
 
 /******************** header ***************************/
 div#header-bar {
-    width:44em;
+    width:48em;
     margin:0 auto;
     background-color:#DDFFEE;
     height:2em;
@@ -84,7 +84,7 @@ div#header-bar {
 }
 
 div#header-bar ul {
-    margin:0 1em;
+    margin:0 3em;
 }
 
 div#header-bar ul li a {
