@@ -3,6 +3,9 @@ body, html {
     font-family: Helvetica, Verdana, sans-serif;
     line-height: 2;
     background-color:#EEEEEE;
+}
+
+body {
     padding:3em 0;
 }
 
