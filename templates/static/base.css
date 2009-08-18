@@ -3,6 +3,7 @@ body, html {
     font-family: Helvetica, Verdana, sans-serif;
     line-height: 2;
     background-color:#EEEEEE;
+    padding:3em 0;
 }
 
 strong {
@@ -32,7 +33,7 @@ h2 a {
 
 div#wrap {
     width:39em;
-    margin:0 auto 3em;
+    margin:0 auto;
     border-left:2px solid #9999CC;
     border-right:2px solid #9999CC;
     border-bottom:2px solid #9999CC;
