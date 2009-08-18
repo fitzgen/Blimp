@@ -1,8 +1,8 @@
 body, html {
     font-size:.95em;
     font-family: Helvetica, Verdana, sans-serif;
-    line-height: 1.5;
-    background-color:#EEFFEE;
+    line-height: 2;
+    background-color:#EEEEEE;
 }
 
 strong {
@@ -16,7 +16,7 @@ em {
 a:visited,
 a:active,
 a {
-    color:#000000;
+    color:#2222FF;
     text-decoration:none;
     border-bottom:1px solid #AABBAA;
 }
@@ -32,13 +32,17 @@ h2 a {
 
 div#wrap {
     width:39em;
-    margin:0 auto;
-    border-left:.5em solid #DDFFEE;
-    border-right:.5em solid #DDFFEE;
-    border-bottom:.5em solid #DDFFEE;
+    margin:0 auto 3em;
+    border-left:2px solid #9999CC;
+    border-right:2px solid #9999CC;
+    border-bottom:2px solid #9999CC;
     padding:1.5em 3em;
-    background-color:#EEFFFF;
+    background-color:#FFFFFF;
     clear:both;
+    -moz-border-radius-bottomleft: .5em;
+    -moz-border-radius-bottomright: .5em;
+    -webkit-border-bottom-right-radius: .5em;
+    -webkit-border-bottom-left-radius: .5em;
 }
 
 abbr {
@@ -65,6 +69,7 @@ h3.question {
     font-style:italic;
     color:#777;
     font-size:.8em;
+    font-weight:bold;
 }
 
 h3.question code {
@@ -73,33 +78,34 @@ h3.question code {
 
 /******************** header ***************************/
 div#header-bar {
-    width:48em;
-    margin:0 auto;
-    background-color:#DDFFEE;
-    height:2em;
-    -moz-border-radius-bottomleft: .5em;
-    -moz-border-radius-bottomright: .5em;
-    -webkit-border-bottom-right-radius: .5em;
-    -webkit-border-bottom-left-radius: .5em;
+    width:45em;
+    margin:3em auto 0;
+    background-color:#FFFFFF;
+    height:4em;
+    border-color:#9999CC;
+    border-style:solid;
+    border-width:2px 2px 0;
+    -moz-border-radius-topleft: .5em;
+    -moz-border-radius-topright: .5em;
+    -webkit-border-top-right-radius: .5em;
+    -webkit-border-top-left-radius: .5em;
 }
 
 div#header-bar ul {
-    margin:0 3em;
+    margin:0 1.5em;
 }
 
 div#header-bar ul li a {
     float:left;
-    line-height:200%;
+    line-height:400%;
     padding: 0 1.5em;
-    color:#000000;
     text-decoration:none;
     border-bottom:0;
 }
 
 div#header-bar ul li a:hover {
-    border-top:.28em solid #AABBAA;
-    line-height:150%;
-    padding-bottom:.22em;
+    line-height:300%;
+    padding-bottom:1em;
 }
 
 /******************* index page ***************************/
