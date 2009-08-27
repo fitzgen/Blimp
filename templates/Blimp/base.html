@@ -5,6 +5,7 @@
 
         <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.7.0/build/reset/reset-min.css" />
         <link rel="stylesheet" type="text/css" href="http://fitzgeraldnick.com/weblog/static/base.css" />
+        <style></style>
         <link rel="stylesheet" type="text/css" href="http://fitzgeraldnick.com/weblog/static/sh_style.css" />
 
         <link rel="alternate" type="application/atom+xml"  href="{% url blimp_index %}feeds/latest-atom/" title="Latest Entries - Atom" />
@@ -14,26 +15,29 @@
          title="Latest Reading - Atom" />
     </head>
     <body>
-        <div id="header-bar">
-            <ul>
-                <li>
-                    <a href="{% url blimp_index %}">Nick Fitzgerald</a>
-                </li>
-                <li>
-                    <a href="{% url blimp_index %}">Weblog</a>
-                </li>
-                <li>
-                    <a href="http://www.google.com/reader/shared/fitzgen">Reading</a>
-                </li>
-                <li>
-                    <a href="{% url blimp_contact %}">Contact</a>
-                </li>
-            </ul>
-        </div>
-        <div id="wrap">
-            {% block content %}
-                Stuff!
-            {% endblock %}
+        <div id="super-wrap">
+            <h1>{% block page_title %}Nick Fitzgerald{% endblock %}</h1>
+            <div id="header-bar">
+                <ul>
+                    <li>
+                        <a href="{% url blimp_index %}">Home</a>
+                    </li>
+                    <li>
+                        <a href="{% url blimp_index %}">Weblog</a>
+                    </li>
+                    <li>
+                        <a href="http://www.google.com/reader/shared/fitzgen">Reading</a>
+                    </li>
+                    <li>
+                        <a href="{% url blimp_contact %}">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <div id="wrap">
+                {% block content %}
+                    Stuff!
+                {% endblock %}
+            </div>
         </div>
 
         {# Google Analytics #}
