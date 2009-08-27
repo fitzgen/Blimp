@@ -1,0 +1,74 @@
+<html>
+
+    <head>
+        <title>Tempest jQuery Templating Plugin Live Demo @ fitzgeraldnick.com</title>
+        <style>
+            td {
+                padding:30px;
+                margin:0;
+            }
+            tr,
+            table {
+                width:75%;
+                margin:0;
+                padding:0;
+            }
+            textarea {
+                width:100%;
+                height:250px;
+            }
+        </style>
+    </head>
+
+    <body>
+
+        <h1>Tempest jQuery Templating Plugin Live Demo</h1>
+        <h2>Try out <a href="http://plugins.jquery.com/project/tempest">Tempest</a> for yourself with this live demo!</h2>
+        <p><a href="http://github.com/fitzgen/tempest/tree/master">Tempest source at GitHub</a></p>
+
+        <!-- Yeah, I know, I'm using tables. Its a quick demo project, OMG kill me. -->
+        <table>
+            <tr>
+                <th>Input</th>
+                <th>Output</th>
+            </tr>
+            <tr>
+                <td>
+                    <textarea id="input">
+var template = "<p>Hello {{ target }}</p>";
+
+var rendered = $.tempest(template, {
+    "target": "World!"
+});
+
+$("#output").html(rendered);
+                    </textarea>
+                    <input type="submit" value="Evaluate!" id="eval" />
+                </td>
+                 <td id="output">
+                </td>
+            </tr>
+        </table>
+
+        <script src="../jquery-1.3.2.min.js"></script>
+        <script src="../jquery.tempest-0.2.min.js"></script>
+        <script>
+            $(document).ready(function () {
+                var eval_input = function () {
+                    try {
+                        eval($("#input").val());
+                    } catch(err) {
+                        $("#output").html("<p>" + err.name + "</p><p>" + err.message + "</p>");
+                    }
+                };
+                eval_input();
+                $("#eval").click(function (event) {
+                    event.preventDefault();
+                    eval_input();
+                });
+            });
+        </script>
+
+    </body>
+
+</html>
