@@ -1,5 +1,10 @@
-body {
+body, html {
     background-color:#F0F0F0;
+}
+
+div#footer {
+    clear:both;
+    text-align:center;
 }
 
 div#super-wrap {
