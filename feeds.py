@@ -6,7 +6,7 @@ class RssLatestPosts(Feed):
     author_name = "Nick Fitzgerald"
     author_email = "fitzgen@gmail.com"
     title = "Nick Fitzgerald"
-    link = "/weblog/"
+    link = "http://fitzgeraldnick.com/weblog/"
     description = "Latest posts from fitzgeraldnick.com"
 
     def items(self):
