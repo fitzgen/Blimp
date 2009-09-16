@@ -22,4 +22,7 @@ urlpatterns = patterns('',
 
     # feeds
     url(r'^feeds/(?P<url>.*)/$', 'django.contrib.syndication.views.feed', {'feed_dict': feeds}),
+
+    # comments
+    url(r'^comments/', include('django.contrib.comments.urls')),
 )
