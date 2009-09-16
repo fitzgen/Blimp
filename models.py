@@ -4,6 +4,7 @@ from django.core.urlresolvers import reverse
 from django.contrib.comments.signals import comment_was_posted
 from akismet import Akismet
 from django.core.mail import mail_admins
+import datetime
 
 class Post(models.Model):
     """A blog post or entry or whatever you want to call it."""
@@ -19,6 +20,10 @@ class Post(models.Model):
 
     def get_absolute_url(self):
         return "".join(["http://fitzgeraldnick.com", reverse("blimp_detail", args=[self.id,])])
+
+    def comments_open(self):
+        delta = datetime.date.today() - self.pub_date
+        return delta.days < 14
 
 
 # Signals

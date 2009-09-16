@@ -18,6 +18,14 @@
         {% endfor %}
     </dl>
 
-    <div>{% render_comment_form for object %}</div>
+    <div id="comment-reply">
+    {% if object.comments_open %}
+        {% render_comment_form for object %}
+    {% else %}
+        <p><strong>Comments are closed.</strong></p>
+        <p>Comments get closed two weeks after a post is published. You can
+        still <a href="{% url blimp_contact %}">contact me</a>, though.</p>
+    {% endif %}
+    </div>
 
 {% endblock %}
