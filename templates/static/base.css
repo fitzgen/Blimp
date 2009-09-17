@@ -75,11 +75,12 @@ a, a:visited, a:hover, a:active {
 p {
     color:#333333;
     font-size:0.85em;
-    margin:0.75em 1em 0.75em 0;
+    margin:1.5em 1em 1.5em 0;
 }
 
 label {
     float:right;
+    font-weight:bold;
 }
 
 li.post {
@@ -96,7 +97,7 @@ li.comment,
 #id_name,
 #id_url,
 #id_email {
-    width:70%;
+    width:65%;
 }
 
 #footer p {

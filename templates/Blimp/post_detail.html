@@ -29,6 +29,10 @@
 
     <div id="comment-reply">
     {% if object.comments_open %}
+        <p>I ask that you use your <strong>real name</strong>, as well as be
+        <strong>respectful and constructive</strong>, when leaving your comment
+        on my blog.</p>
+        <p>Your email will <strong>not</strong> be publicly visible.</p>
         {% render_comment_form for object %}
     {% else %}
         <p><strong>Comments are closed.</strong></p>
