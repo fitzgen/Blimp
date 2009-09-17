@@ -12,15 +12,16 @@
     <ul id="comments">
         {% for comment in comments %}
             <li class='comment'>
-                <p class="permalink">
+                <h4>
                     <a href="{{ comment.get_absolute_url }}" title="permalink">#</a>
-                </p>
+                    <span class="post-info">On {{ comment.submit_date|date:"D M d, Y" }}</span>
                 {% if comment.user_url %}
-                    <h4><a href="{{ comment.user_url }}">{{ comment.name }}</a></h4>
+                    <a href="{{ comment.user_url }}">{{ comment.name }}</a>
                 {% else %}
-                    <h4>{{ comment.user_name }}</h4>
+                    {{ comment.user_name }}
                 {% endif %}
-                <p class="post-info">{{ comment.submit_date|date:"D M d, Y @ f a" }}</p>
+                    <span class="post-info">said</span>
+                </h4>
                 <div class="comment-body">{{ comment.comment|markdown }}</div>
             </li>
         {% endfor %}

@@ -78,8 +78,25 @@ p {
     margin:0.75em 1em 0.75em 0;
 }
 
+label {
+    float:right;
+}
+
 li.post {
     margin-bottom:3em;
+}
+
+li.comment,
+#comment-reply {
+    margin:1.5em 0 0 0;
+    padding: 1.5em 0 0 0;
+    border-top:1px solid #ccc;
+}
+
+#id_name,
+#id_url,
+#id_email {
+    width:70%;
 }
 
 .post ul, .post ol {
