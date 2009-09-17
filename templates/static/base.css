@@ -78,6 +78,10 @@ p {
     margin:0.75em 1em 0.75em 0;
 }
 
+li.post {
+    margin-bottom:3em;
+}
+
 .post ul, .post ol {
     padding-left:2em;
 }
