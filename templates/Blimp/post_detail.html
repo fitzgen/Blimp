@@ -1,6 +1,5 @@
 {% extends 'Blimp/base.html' %}
 {% load comments %}
-{% load markup %}
 
 {% block content %}
 
@@ -11,19 +10,7 @@
     {% get_comment_list for object as comments %}
     <ul id="comments">
         {% for comment in comments %}
-            <li class='comment'>
-                <h4>
-                    <a href="{{ comment.get_absolute_url }}" title="permalink">#</a>
-                    <span class="post-info">On {{ comment.submit_date|date:"D M d, Y" }}</span>
-                {% if comment.user_url %}
-                    <a href="{{ comment.user_url }}">{{ comment.name }}</a>
-                {% else %}
-                    {{ comment.user_name }}
-                {% endif %}
-                    <span class="post-info">said</span>
-                </h4>
-                <div class="comment-body">{{ comment.comment|markdown }}</div>
-            </li>
+            {% include "Blimp/comment.html" %}
         {% endfor %}
     </ul>
 

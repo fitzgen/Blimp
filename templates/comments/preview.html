@@ -1,0 +1,33 @@
+{% extends "Blimp/base.html" %}
+{% load i18n %}
+
+{% block content %}
+  {% load comments %}
+  <form action="{% comment_form_target %}" method="post">
+    {% if form.errors %}
+    <h2>Please correct the error{{ form.errors|pluralize }} below</h2>
+    {% else %}
+    <h2>{% trans "Preview your comment" %}</h2>
+      <blockquote class="preview">{{ comment|linebreaks|urlize }}</blockquote>
+      <p>
+      {% trans "and" %} <input type="submit" name="submit" class="submit-post" value="{% trans "Post your comment" %}" id="submit" /> {% trans "or make changes" %}
+      </p>
+    {% endif %}
+    {% for field in form %}
+      {% if field.is_hidden %}
+        {{ field }}
+      {% else %}
+        <p
+          {% if field.errors %} class="error"{% endif %}
+          {% ifequal field.name "honeypot" %} style="display:none;"{% endifequal %}>
+          {% if field.errors %}{{ field.errors }}{% endif %}
+          {{ field.label_tag }} {{ field }}
+        </p>
+      {% endif %}
+    {% endfor %}
+    <p class="submit">
+    <input type="submit" name="submit" class="submit-post" value="{% trans "Post" %}" />
+    <input type="submit" name="preview" class="submit-preview" value="{% trans "Preview" %}" />
+    </p>
+  </form>
+{% endblock %}  

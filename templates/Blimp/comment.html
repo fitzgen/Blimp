@@ -1,0 +1,13 @@
+<li class='comment'>
+    <h4>
+        <a href="{{ comment.get_absolute_url }}" title="permalink">#</a>
+        <span class="post-info">On {{ comment.submit_date|date:"D M d, Y" }}</span>
+    {% if comment.user_url %}
+        <a href="{{ comment.user_url }}">{{ comment.name }}</a>
+    {% else %}
+        {{ comment.user_name }}
+    {% endif %}
+        <span class="post-info">said</span>
+    </h4>
+    <div class="comment-body">{{ comment.comment|linebreaks|urlize }}</div>
+</li>

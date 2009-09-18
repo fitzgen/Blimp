@@ -1,0 +1,8 @@
+{% extends "Blimp/base.html" %}
+
+{% block title %}Thank's for your comment | {% endblock %}
+
+{% block content %}
+    <h2>Thank you for your comment</h2>
+    <a href="{{ comment.get_absolute_url }}">Return</a>
+{% endblock %}
