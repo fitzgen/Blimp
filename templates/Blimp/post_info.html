@@ -10,9 +10,9 @@
     </div>
 
     {% get_comment_count for object as comment_count %}
-    <p class="post-info">
+    <h4 class="post-info">
         <a href="{% url blimp_detail object.id %}#comments">{{ comment_count }} 
             comment{{ comment_count|pluralize }}</a>
-    </p>
+    </h4>
 
 </li>
