@@ -2,7 +2,7 @@ body, html {
     background-color:#FFFFFF;
 }
 
-pre {
+code, pre {
     font-size:1.1em;
 }
 
