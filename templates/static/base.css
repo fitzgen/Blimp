@@ -24,6 +24,10 @@ div#super-wrap {
     line-height:1.5;
 }
 
+p.edit {
+    background-color:#f0f0f0;
+}
+
 div#header-bar ul {
     float:right;
 }
