@@ -1,12 +1,18 @@
 {% load comments %}
 
 <li class="post">
-    <h2 class="post-title">
+<h2 class="post-title {% if short %}{% if featured %}{% else %}short-title{% endif %}{% endif %}">
         <a href="{% url blimp_detail object.id %}">{{ object.title|title }}</a>
     </h2>
     <p class="post-info">{{ object.pub_date|date:"D M d, Y" }}</p>
     <div class="post-content">
-        {{ object.content|safe }}
+        {% if short %}
+            {% if featured %}
+                {{ object.content|safe|truncatewords_html:100 }}
+            {% endif %}
+        {% else %}
+            {{ object.content|safe }}
+        {% endif %}
     </div>
 
     {% get_comment_count for object as comment_count %}

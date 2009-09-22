@@ -58,6 +58,14 @@ h3 {
     margin:0.75em 0;
 }
 
+a, a:visited, a:active {
+    color:#0044CC;
+}
+
+a:hover {
+    color:#0022BB;
+}
+
 h1 {
     color:#444444;
     font-family:Helvetica,sans-serif;
@@ -73,16 +81,12 @@ div#header-container {
 }
 
 h2 {
-    font-size:1.5em;
+    font-size:2.5em;
     margin:1em 0;
 }
 
-a, a:visited, a:active {
-    color:#0044CC;
-}
-
-a:hover {
-    color:#0022BB;
+h2.short-title {
+    font-size:1.5em;
 }
 
 blockquote {
@@ -103,14 +107,13 @@ label {
 li.post, li.comment, div#comment-reply {
     color:#333333;
     font-size:0.85em;
-    margin-bottom:3em;
+    margin-bottom:1.5em;
+    padding-bottom:1.5em;
+    border-bottom:1px solid #ccc;
 }
 
-li.comment,
-#comment-reply {
-    margin:1.5em 0 0 0;
-    padding: 1.5em 0 0 0;
-    border-top:1px solid #ccc;
+h4 {
+    font-size:1.2em;
 }
 
 blockquote.preview {
@@ -126,9 +129,8 @@ blockquote.preview {
 
 #footer p {
     width:89%;
-    margin:2em auto 0;
-    border-top:1px solid #ccc;
-    padding:2em 0 0 0;
+    margin:0 auto;
+    padding:2em 0;
 }
 
 div#error h1 {

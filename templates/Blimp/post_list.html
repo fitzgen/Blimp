@@ -4,7 +4,9 @@
 
 <ul class="post-list">
 {% for object in object_list %}
-    {% include "Blimp/post_info.html" %}
+    {% with forloop.first as featured %}
+        {% include "Blimp/post_info.html" %}
+    {% endwith %}
 {% endfor %}
 </ul>
 

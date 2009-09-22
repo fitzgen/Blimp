@@ -13,8 +13,14 @@ info_dict = {
                                     is_published=True).order_by("-pub_date")
 }
 
+list_dict = {
+        "queryset": info_dict["queryset"][:10],
+        "extra_context": {"short": True},
+}
+list_dict.update(info_dict)
+
 urlpatterns = patterns('',
-    url(r'^$', "django.views.generic.list_detail.object_list", info_dict, name="blimp_index"),
+    url(r'^$', "django.views.generic.list_detail.object_list", list_dict, name="blimp_index"),
     url(r'^(?P<object_id>\d+)/$', "django.views.generic.list_detail.object_detail", info_dict, name="blimp_detail"),
 
     # direct-to-template
