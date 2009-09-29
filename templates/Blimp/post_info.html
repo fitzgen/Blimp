@@ -8,7 +8,7 @@
     <div class="post-content">
         {% if short %}
             {% if featured %}
-                {{ object.content|safe|truncatewords_html:100 }}
+                {{ object.content|safe|truncatewords_html:80 }}
             {% endif %}
         {% else %}
             {{ object.content|safe }}
