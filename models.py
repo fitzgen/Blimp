@@ -25,6 +25,17 @@ class Post(models.Model):
         delta = datetime.date.today() - self.pub_date
         return delta.days < 14
 
+class Link(models.Model):
+    """A link from Google Reader"""
+    author = models.CharField(max_length=255)
+    content = models.TextField()
+    link = models.URLField(verify_exists=False)
+    pub_date = models.DateField()
+    title = models.CharField(max_length=255)
+
+    def get_absolute_url(self):
+        return self.link
+
 
 # Signals
 
