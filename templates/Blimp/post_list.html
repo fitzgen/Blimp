@@ -10,4 +10,21 @@
 {% endfor %}
 </ul>
 
+{% if has_next or has_previous %}
+<ol id="next-prev-posts">
+    {% if has_previous %}
+    <li id="next-post">
+        <a href="{% url blimp_index %}?page={{ previous }}"
+           title="Newer Posts">Newer Posts</a> &raquo
+    </li>
+    {% endif %}
+    {% if has_next %}
+    <li id="prev-post">
+        &laquo; <a href="{% url blimp_index %}?page={{ next }}"
+                   title="Older Posts">Older Posts</a>
+    </li>
+    {% endif %}
+</ol>
+{% endif %}
+
 {% endblock %}

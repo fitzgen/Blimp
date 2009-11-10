@@ -15,8 +15,9 @@ info_dict = {
 }
 
 list_dict = {
-        "queryset": info_dict["queryset"][:10],
-        "extra_context": {"short": True},
+    "queryset": info_dict["queryset"],
+    "extra_context": {"short": True},
+    "paginate_by": 5
 }
 list_dict.update(info_dict)
 
