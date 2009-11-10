@@ -8,21 +8,6 @@
     {% include "Blimp/post_info.html" %}
     </ul>
 
-    {% if next_post or prev_post %}
-    <ol id="next-prev-posts">
-        {% if prev_post %}
-        <li id="prev-post">
-            &laquo; <a href="{% url blimp_detail prev_post.id %}">{{ prev_post.title|title }}</a>
-        </li>
-        {% endif %}
-        {% if next_post %}
-        <li id="next-post">
-            <a href="{% url blimp_detail next_post.id %}">{{ next_post.title|title }}</a> &raquo;
-        </li>
-        {% endif %}
-    </ol>
-    {% endif %}
-
     {% get_comment_list for object as comments %}
     <ul id="comments">
         {% for comment in comments %}

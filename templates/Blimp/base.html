@@ -4,8 +4,11 @@
         <title>{% block full_title %}{% block title %}{% endblock %}Nick Fitzgerald's Weblog @ fitzgeraldnick.com{% endblock %}</title>
 
         <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.7.0/build/reset/reset-min.css" />
-        <link rel="stylesheet" type="text/css" href="http://fitzgeraldnick.com/weblog/static/base.css" />
         <link rel="stylesheet" type="text/css" href="http://fitzgeraldnick.com/weblog/static/sh_style.css" />
+        {#<link rel="stylesheet" type="text/css" href="http://fitzgeraldnick.com/weblog/static/base.css" />#}
+        <style>
+            {% include "static/base.css" %}
+        </style>
 
         <link rel="alternate" type="application/atom+xml"  href="{% url blimp_index %}feeds/latest-atom/" title="Latest Entries - Atom" />
         <link rel="alternate" type="application/rss+xml"  href="{% url blimp_index %}feeds/latest-rss/" title="Latest Entries - RSS" />
@@ -19,7 +22,7 @@
         <div id="super-wrap">
             <div id="header-bar">
                 <div id="header-container">
-                    <h1>{% block page_title %}Nick Fitzgerald{% endblock %}</h1>
+                    <h1><a href="/">{% block page_title %}Nick Fitzgerald{% endblock %}</a></h1>
                     <ul>
                         <li>
                             <a href="{% url blimp_index %}">Weblog</a>

@@ -1,10 +1,17 @@
-body, html {
-    background-color:#FFFFFF;
-    font-family:Helvetica, sans-serif;
+body {
+    background-color:#F3F3F3;
+    font-family:"Helvetica Neue", Helvetica, sans-serif;
+    border-top:5px solid #252525;
 }
 
 code, pre {
+    background-color:#F0F0F0 !important;
     font-size:1.1em;
+}
+
+pre {
+    margin:2em 0;
+    line-height: 1.5;
 }
 
 em {
@@ -21,40 +28,37 @@ div#footer {
 }
 
 div#super-wrap {
-    line-height:1.5;
+    line-height:2;
+    padding:30px;
 }
 
 p.edit {
-    background-color:#f0f0f0;
-}
-
-div#header-bar ul {
-    float:right;
-}
-
-div#header-bar li {
-    float:left;
+    border: 1px solid #c0c0c0;
+    padding: 1em;
 }
 
 div#header-bar li a {
     font-weight:bold;
     font-size:.9em;
-    text-decoration:none;
-    padding:0 .5em;
-    position:relative;
-    top:-1.7em;
+    margin:20px 0;
+    text-transform:lowercase;
 }
 
 div#header-bar {
-    background-color:#F0F0F0;
-    border-bottom:1px solid #ccc;
+    float:left;
+    line-height:2;
 }
 
 div#wrap {
-    background-color:#FFFFFF;
-    margin:0 auto;
+    margin:0 15em;
     width:34em;
 }
+
+#footer p {
+    margin:3em 15em;
+    width:34em;
+}
+
 
 h3 {
     font-size:1.2em;
@@ -62,33 +66,26 @@ h3 {
 }
 
 a, a:visited, a:active {
-    color:#0044CC;
+    color:#333333;
+    font-weight:bold;
+    text-decoration:none;
 }
 
 a:hover {
-    color:#0022BB;
+    background-color:#333;
+    color:#f0f0f0;
 }
 
-h1 {
-    color:#444444;
-    font-size:2.5em;
+h1 a, h2 a {
+    font-size:20px;
     font-weight:bold;
-    letter-spacing:-1px;
-    padding:.5em 0;
+}
+
+h1 a {
+    text-transform:lowercase;
 }
 
 div#header-container {
-    width:34em;
-    margin:0 auto;
-}
-
-h2 {
-    font-size:2.5em;
-    margin:1em 0;
-}
-
-h2.short-title {
-    font-size:1.5em;
 }
 
 blockquote {
@@ -116,6 +113,7 @@ li.post, li.comment, div#comment-reply {
 
 h4 {
     font-size:1.2em;
+    clear:both;
 }
 
 blockquote.preview {
@@ -127,12 +125,6 @@ blockquote.preview {
 #id_url,
 #id_email {
     width:65%;
-}
-
-#footer p {
-    width:89%;
-    margin:0 auto;
-    padding:2em 0;
 }
 
 div#error h1 {
@@ -156,7 +148,24 @@ div#error h3 {
 }
 
 .post-info {
-    color:#999;
-    font-style:italic;
-    margin: 1em 0;
+    color:#777;
+}
+
+ol#next-prev-posts {
+    padding:0;
+    margin-bottom:5em;
+}
+
+li#prev-post {
+    float: left;
+    list-style-type:none;
+    margin:0;
+    padding:0;
+}
+
+li#next-post {
+    float: right;
+    list-style-type:none;
+    margin:0;
+    padding:0;
 }
