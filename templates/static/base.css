@@ -155,6 +155,7 @@ div#error h3 {
 ol#next-prev-posts {
     padding:0;
     margin-bottom:5em;
+    font-weight:bold;
 }
 
 li#prev-post {

@@ -18,13 +18,13 @@
                 {% if next_post %}
                 <li id="next-post">
                     <a href="{% url blimp_detail next_post.id %}"
-                       title="{{ next_post.title|title }}">Next</a> &raquo;
+                       title="{{ next_post.title|title }}">Next Entry</a> &raquo;
                 </li>
                 {% endif %}
                 {% if prev_post %}
                 <li id="prev-post">
                     &laquo; <a href="{% url blimp_detail prev_post.id %}"
-                               title="{{ prev_post.title|title }}">Previous</a>
+                               title="{{ prev_post.title|title }}">Previous Entry</a>
                 </li>
                 {% endif %}
             </ol>
