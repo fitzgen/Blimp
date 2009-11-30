@@ -56,7 +56,7 @@ def on_comment(sender, comment, request, *args, **kwargs):
         try:
             if akismet.comment_check(comment.comment.encode('utf-8'), data=data, build_data=True):
                 comment.flags.create(
-                    user=comment.content_object.author,
+                    user=comment.user_name,
                     flag='spam'
                 )
                 comment.is_public = False
