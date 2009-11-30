@@ -53,20 +53,29 @@ def on_comment(sender, comment, request, *args, **kwargs):
             'comment_author': comment.user_name.encode('utf-8'),
         }
 
-        if akismet.comment_check(comment.comment.encode('utf-8'), data=data, build_data=True):
-            comment.flags.create(
-                user=comment.content_object.author,
-                flag='spam'
-            )
+        try:
+            if akismet.comment_check(comment.comment.encode('utf-8'), data=data, build_data=True):
+                comment.flags.create(
+                    user=comment.content_object.author,
+                    flag='spam'
+                )
+                comment.is_public = False
+                comment.save()
+
+                subject = "New comment marked as spam"
+                message = comment.get_as_text()
+
+            else:
+                subject = "New comment"
+                message = comment.get_as_text()
+
+        except AkismetError, e:
             comment.is_public = False
             comment.save()
+            mail_admins("AkismetError, Possibly a spam message, comment not public",
+                        comment.get_as_text())
+            raise e
 
-            subject = "New comment marked as spam"
-            message = comment.get_as_text()
-
-        else:
-            subject = "New comment"
-            message = comment.get_as_text()
     else:
         subject = "Akismet api key verification failed"
         message = subject
