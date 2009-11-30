@@ -2,7 +2,7 @@ from django.db import models
 from django.conf import settings
 from django.core.urlresolvers import reverse
 from django.contrib.comments.signals import comment_was_posted
-from akismet import Akismet
+from akismet import Akismet, AkismetError
 from django.core.mail import mail_admins
 import datetime
 
