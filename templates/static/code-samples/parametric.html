@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>Parametric Equations</title>
+        <style type="text/css">
+            html {
+                background-color:#000;
+            }
+
+            .point {
+                width: 1px;
+                height: 1px;
+                background-color: #FFF;
+                position: absolute;
+                padding:0;
+                margin:0;
+            }
+
+            #controls {
+                position: absolute;
+                left:0;
+                top:0;
+                padding: 5px;
+                background-color:#FFFFCC;
+                font-size: .9em;
+            }
+            
+            #range-start, #range-end, #num-points {
+                width: 4em !important;
+            }
+            
+            #controls input[type="text"] {
+                width:9em;
+            }
+            
+            #graph {
+                position: absolute;
+                left: 50%;
+                bottom: 50%;
+            }
+        </style>
+    </head>
+
+    <body>
+
+        <form id="controls">
+            <p><code>x = </code><input type="text" id="x" value="cos(t)"/></p>
+            <p><code>y = </code><input type="text" id="y" value="sin(t)"/></p>
+            <p>For <code>t</code> from <input type="text" id="range-start" value="0"/> to
+            <input type="text" id="range-end" value="2*pi" /></p>
+            <p>Plot <input type="text" id="num-points" value="1000" /> individual points.</p>
+            <p><input type="submit" value="Graph" id="plot" /></p>
+        </form>
+
+        <div id="graph">
+        </div>
+
+        <script type="text/javascript"
+                src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+        
+        <script type="text/javascript">
+
+            $(document).ready(function () {
+                // For performance lets keep a reference to this element so we
+                // don't have to search for it all the time.
+                window.graph = $("#graph");
+
+                $("#plot").click(function (event) {
+                    // Prevent form from POSTing and clear the graph.
+                    event.preventDefault();
+                    window.graph.html("");
+                    
+                    // Create the x and y functions.
+                    var x = textToFn($("#x").val());
+                    var y = textToFn($("#y").val());
+
+                    // Determine the range and step of t.
+                    var start = formFieldToNum("#range-start");
+                    var end = formFieldToNum("#range-end");
+                    var numPoints = formFieldToNum("#num-points");
+                    var step = (end - start) / numPoints;
+                    
+                    for (var t = start; t < end; t = t + step) {
+                        // setTimeout so that the browser won't freeze up. Must
+                        // pass t to a second function or else it will capture
+                        // the final value of t rather than what it is now
+                        // because t is passed by reference.
+                        (function (t) {
+                            setTimeout(function () {
+                                plot(x(t), y(t));
+                            }, 1);
+                        }(t));
+                    }
+                });
+            });
+
+            // Takes an x and a y pair that represents a point and plots the point
+            // on the graph.
+            function plot(x, y) {
+                var point = $("<div class='point'></div>").css({
+                    "left": x*50 + "px",
+                    "bottom": y*50 + "px"
+                });
+                window.graph.append(point);
+            }
+
+            // Returns a function from a sample of text that has mathy things.
+            function textToFn(text) {
+                return new Function(
+                    "t", ("return " + mathReplace(text) + ";"));
+            }
+            
+            // Takes a form field's id selector and returns the number inside.
+            function formFieldToNum(id) {
+                return parseInt(eval(mathReplace($(id).val())), 10);
+            }
+            
+            // Convert Cos, Sin, and Pi to the JS equivalents.
+            function mathReplace(text) {
+                return text.replace(/cos/gi, "Math.cos")
+                            .replace(/pi/gi, "Math.PI")
+                            .replace(/sin/gi, "Math.sin");
+            }
+
+        </script>
+
+    </body>
+
+</html>
