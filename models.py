@@ -22,7 +22,7 @@ class Post(models.Model):
         return "".join(["http://fitzgeraldnick.com", reverse("blimp_detail", args=[self.id,])])
 
     def comments_open(self):
-        delta = datetime.date.today() - self.pub_date
+        delta = datetime.datetime.now() - self.pub_date
         return delta.days < 14
 
 #class Link(models.Model):
