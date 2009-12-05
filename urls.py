@@ -1,12 +1,11 @@
 from django.conf.urls.defaults import *
 
-from feeds import RssLatestPosts, AtomLatestPosts
+from feeds import AtomLatestPosts
 from models import Post
 from views import post_detail
 
 feeds = {
     "latest-atom": AtomLatestPosts,
-    "latest-rss": RssLatestPosts,
 }
 
 info_dict = {
