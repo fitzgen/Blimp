@@ -6,11 +6,7 @@
     </h2>
     <p class="post-info">{{ object.pub_date|date:"D M d, Y" }}</p>
     <div class="post-content">
-        {% if short %}
-            {% if featured %}
-                {{ object.content|safe|truncatewords_html:80 }}
-            {% endif %}
-        {% else %}
+        {% if not short %}
             {{ object.content|safe }}
 
             {% if next_post or prev_post %}

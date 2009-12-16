@@ -5,7 +5,7 @@
 
         <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.7.0/build/reset/reset-min.css" />
         <link rel="stylesheet" type="text/css" href="http://fitzgeraldnick.com/weblog/static/sh_style.css" />
-        <link rel="stylesheet" type="text/css" href="http://fitzgeraldnick.com/weblog/static/base.css" />
+{#        <link rel="stylesheet" type="text/css" href="http://fitzgeraldnick.com/weblog/static/base.css" /> #}
 
         <link rel="alternate" type="application/atom+xml"
               href="{% url blimp_index %}feeds/latest-atom/"
@@ -14,24 +14,22 @@
          href="http://www.google.com/reader/public/atom/user%2F06111624940130850285%2Fstate%2Fcom.google%2Fbroadcast"
          title="Latest Reading" />
 
-         <meta name="verify-v1" content="tkhIz+JdwgFkL06ipDoDLFeC5ZCx7nPFxmtn63BR4Ow=" />
+	<style type="text/css">
+	    {% include "static/base.css" %}
+	</style>
+
+        <meta name="verify-v1" content="tkhIz+JdwgFkL06ipDoDLFeC5ZCx7nPFxmtn63BR4Ow=" />
     </head>
     <body>
         <div id="super-wrap">
             <div id="header-bar">
                 <div id="header-container">
-                    <h1><a href="/">{% block page_title %}Nick Fitzgerald{% endblock %}</a></h1>
-                    <ul>
-                        <li>
-                            <a href="{% url blimp_index %}">Weblog</a>
-                        </li>
-                        <li>
-                            <a href="http://www.google.com/reader/shared/fitzgen">Reader</a>
-                        </li>
-                        <li>
-                            <a href="{% url blimp_contact %}">Contact</a>
-                        </li>
-                    </ul>
+                    <h1>I'm <a href="/">{% block page_title %}Nick Fitzgerald{% endblock %}.</a></h1>
+                    <p>This is my <a href="{% url blimp_index %}">weblog</a>. 
+		    You can also check out my shared items
+                    from <a href="http://www.google.com/reader/shared/fitzgen">Reader</a>,
+                    code on <a href="http://github.com/fitzgen">GitHub</a>,
+                    or you can <a href="{% url blimp_contact %}">contact me</a>.</p>
                 </div>
             </div>
             <div id="wrap">
@@ -40,7 +38,7 @@
                 {% endblock %}
             </div>
             <div id="footer">
-                <p>:-)</p>
+                <p><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/us/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-sa/3.0/us/80x15.png" /></a><br />This <span xmlns:dc="http://purl.org/dc/elements/1.1/" href="http://purl.org/dc/dcmitype/Text" rel="dc:type">work</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://fitzgeraldnick.com/" property="cc:attributionName" rel="cc:attributionURL">Nick Fitzgerald</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/us/">Creative Commons Attribution-Noncommercial-Share Alike 3.0 United States License</a>.</p>
             </div>
         </div>
 

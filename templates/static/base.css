@@ -1,3 +1,9 @@
+html {
+    background-color:#F3F3F3;
+    width:100%;
+    overflow-x:hidden;
+}
+
 body {
     background-color:#F3F3F3;
     font-family:"Helvetica Neue", Helvetica, sans-serif;
@@ -5,7 +11,7 @@ body {
 }
 
 code, pre {
-    background-color:#F0F0F0 !important;
+    background-color:transparent !important;
     font-size:1.1em;
 }
 
@@ -37,26 +43,26 @@ p.edit {
     padding: 1em;
 }
 
-div#header-bar li a {
-    font-weight:bold;
-    font-size:.9em;
-    margin:20px 0;
-    text-transform:lowercase;
+div#header-bar {
+    width:34em;
+    margin:0 auto;
+    border-bottom:1px solid #ccc;
 }
 
-div#header-bar {
-    float:left;
-    line-height:2;
+div#header-bar p {
+    font-size:1.2em;
+    margin-top:0;
 }
 
 div#wrap {
-    margin:0 15em;
+    margin:0 auto;
     width:34em;
 }
 
 #footer p {
-    margin:3em 15em;
+    margin:3em auto;
     width:34em;
+    font-size:.85em;
 }
 
 
@@ -66,26 +72,25 @@ h3 {
 }
 
 a, a:visited, a:active {
-    color:#333333;
-    font-weight:bold;
+    color:#3366DD;
     text-decoration:none;
 }
 
 a:hover {
-    background-color:#333;
-    color:#f0f0f0;
+    text-decoration:underline;
 }
 
-h1 a, h2 a {
-    font-size:20px;
+h1, h2, h3, h4, h5 {
     font-weight:bold;
 }
 
-h1 a {
-    text-transform:lowercase;
+h1 {
+    font-size:3em;
 }
 
-div#header-container {
+h2 {
+    font-size:2em;
+    margin:.5em 0;
 }
 
 blockquote {
@@ -105,7 +110,6 @@ label {
 }
 
 li.post, li.comment, div#comment-reply {
-    color:#333333;
     font-size:0.85em;
     margin-bottom:1.5em;
     padding-bottom:1.5em;
