@@ -5,9 +5,9 @@ html {
 }
 
 body {
-    background-color:#F3F3F3;
+    background-color:#F9F9F9;
     font-family:"Helvetica Neue", Helvetica, sans-serif;
-    border-top:5px solid #252525;
+    border-top:.5em solid #000000;
 }
 
 code, pre {
@@ -35,7 +35,8 @@ div#footer {
 
 div#super-wrap {
     line-height:2;
-    padding:30px;
+    padding:3.5em 4em;
+    border-top:.5em solid #33DD66;
 }
 
 p.edit {
@@ -45,22 +46,21 @@ p.edit {
 
 div#header-bar {
     width:34em;
-    margin:0 auto;
+    margin:0;
     border-bottom:1px solid #ccc;
 }
 
 div#header-bar p {
-    font-size:1.2em;
+    font-size:1em;
     margin-top:0;
 }
 
 div#wrap {
-    margin:0 auto;
+    margin:0;
     width:34em;
 }
 
 #footer p {
-    margin:3em auto;
     width:34em;
     font-size:.85em;
 }
@@ -80,12 +80,12 @@ a:hover {
     text-decoration:underline;
 }
 
-h1, h2, h3, h4, h5 {
+h2, h3, h4, h5 {
     font-weight:bold;
 }
 
 h1 {
-    font-size:3em;
+    font-size:1.2em;
 }
 
 h2 {

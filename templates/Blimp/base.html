@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>{% block full_title %}{% block title %}{% endblock %}Nick Fitzgerald's Weblog @ fitzgeraldnick.com{% endblock %}</title>
+        <title>{% block full_title %}{% block title %}Nick Fitzgerald's Weblog{% endblock %} @ fitzgeraldnick.com{% endblock %}</title>
 
         <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.7.0/build/reset/reset-min.css" />
         <link rel="stylesheet" type="text/css" href="http://fitzgeraldnick.com/weblog/static/sh_style.css" />
@@ -24,12 +24,12 @@
         <div id="super-wrap">
             <div id="header-bar">
                 <div id="header-container">
-                    <h1>I'm <a href="/">{% block page_title %}Nick Fitzgerald{% endblock %}.</a></h1>
+                    <h1>Hello, I'm <a href="/">Nick Fitzgerald.</a></h1>
                     <p>This is my <a href="{% url blimp_index %}">weblog</a>. 
-		    You can also check out my shared items
-                    from <a href="http://www.google.com/reader/shared/fitzgen">Reader</a>,
-                    code on <a href="http://github.com/fitzgen">GitHub</a>,
-                    or you can <a href="{% url blimp_contact %}">contact me</a>.</p>
+		    You can also check out my <a href="http://www.google.com/reader/shared/fitzgen">shared items
+                    from Reader</a> and
+                    <a href="http://github.com/fitzgen">code on GitHub</a>.
+                    Feel free to <a href="{% url blimp_contact %}">contact me</a> about whatever.</p>
                 </div>
             </div>
             <div id="wrap">
