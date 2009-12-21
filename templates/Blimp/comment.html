@@ -1,6 +1,6 @@
-<li class='comment'>
+<li class='comment' id="c{{ comment.id }}">
     <h4>
-        <a href="{{ comment.get_absolute_url }}" title="permalink">#</a>
+        <a href="#c{{ comment.id }}" title="permalink">#</a>
         <span class="post-info">On {{ comment.submit_date|date:"D M d, Y" }}</span>
     {% if comment.user_url %}
         <a href="{{ comment.user_url }}">{{ comment.name }}</a>
