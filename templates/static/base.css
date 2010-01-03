@@ -1,11 +1,11 @@
 html {
-    background-color:#F3F3F3;
+    background-color:#FDFDFD;
     width:100%;
     overflow-x:hidden;
 }
 
 body {
-    background-color:#F9F9F9;
+    background-color:#FDFDFD;
     font-family:"Helvetica Neue", Helvetica, sans-serif;
     border-top:.5em solid #000000;
 }
@@ -46,23 +46,23 @@ p.edit {
 
 div#header-bar {
     width:34em;
-    margin:0;
-    border-bottom:1px solid #ccc;
+    margin:0 auto 4em;
 }
 
 div#header-bar p {
-    font-size:1em;
+    font-size:.75em;
     margin-top:0;
 }
 
 div#wrap {
-    margin:0;
+    margin:2em auto;
     width:34em;
 }
 
 #footer p {
     width:34em;
-    font-size:.85em;
+    font-size:.75em;
+    margin:2em auto;
 }
 
 
@@ -85,7 +85,8 @@ h3, h4, h5 {
 }
 
 h1 {
-    font-size:1.2em;
+    font-size:1em;
+    margin: 0 0 1em;
 }
 
 h2 {
@@ -101,7 +102,7 @@ blockquote {
 }
 
 p {
-    margin:1.5em 1em 1.5em 0;
+    margin:2em 1em 2em 0;
 }
 
 label {
@@ -110,10 +111,9 @@ label {
 }
 
 li.post, li.comment, div#comment-reply {
-    font-size:0.85em;
-    margin-bottom:1.5em;
-    padding-bottom:1.5em;
-    border-bottom:1px solid #ccc;
+    font-size:0.75em;
+    margin-bottom:2em;
+    padding-bottom:6em;
 }
 
 h4 {
@@ -122,7 +122,7 @@ h4 {
 }
 
 blockquote.preview {
-    padding:0 1.5em;
+    padding:0 2em;
     border:1px solid #ccc;
 }
 
@@ -153,12 +153,18 @@ div#error h3 {
 }
 
 .post-info {
-    color:#777;
+    position:relative;
+    left:-15.25em;
+    margin-bottom:-3.6em;
+    font-size:1.2em;
+    color: #999;
+    width: 12em;
+    text-align: right;
 }
 
 ol#next-prev-posts {
     padding:0;
-    margin-bottom:5em;
+    margin-bottom:6em;
     font-weight:bold;
 }
 
