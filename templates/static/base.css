@@ -99,6 +99,7 @@ blockquote {
     padding-right:2em;
     font-style:italic;
     margin:2em 0;
+    border-left: 2px solid #3366DD;
 }
 
 p {
