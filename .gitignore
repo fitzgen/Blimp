@@ -3,3 +3,4 @@
 *.swo
 # ignore python bytecode files
 *.pyc
+.emacs*

@@ -1,1 +1,4 @@
 {{ obj.content|safe }}
+{% with obj as object %}
+    {% include "Blimp/comments_count.html" %}
+{% endwith %}
