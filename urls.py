@@ -20,7 +20,20 @@ list_dict = {
 }
 list_dict.update(info_dict)
 
-urlpatterns = patterns('',
+# Old urls that need to redirect to new places.
+legacy_urls = (
+    (r"^feeds/latest-rss/$", "/weblog/feeds/latest-atom/"),
+)
+
+urlpatterns = patterns("")
+
+for old, new in legacy_urls:
+    urlpatterns += patterns("",
+                            (old,
+                             'django.views.generic.simple.redirect_to',
+                             {'url': new }))
+
+urlpatterns += patterns('',
     url(r'^$', "django.views.generic.list_detail.object_list", list_dict, name="blimp_index"),
     url(r'^(?P<object_id>\d+)/$', post_detail, name="blimp_detail"),
 

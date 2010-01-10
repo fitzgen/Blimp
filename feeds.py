@@ -2,8 +2,6 @@ from django.contrib.syndication.feeds import Feed
 from django.utils.feedgenerator import Atom1Feed
 from models import Post
 
-from datetime import datetime
-
 class AtomLatestPosts(Feed):
     feed_type = Atom1Feed
     author_name = "Nick Fitzgerald"
