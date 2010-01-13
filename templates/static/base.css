@@ -135,8 +135,9 @@ blockquote.preview {
 
 #id_name,
 #id_url,
+#id_comment,
 #id_email {
-    width:65%;
+    width:70%;
 }
 
 div#error h1 {
