@@ -8,6 +8,7 @@ body {
     background-color:#FDFDFD;
     font-family:"Helvetica Neue", Helvetica, sans-serif;
     border-top:.5em solid #000000;
+    font-size:.9em;
 }
 
 code, pre {
@@ -50,23 +51,21 @@ p.edit {
 }
 
 div#header-bar {
-    width:34em;
+    width:38em;
     margin:0 auto 4em;
 }
 
 div#header-bar p {
-    font-size:.75em;
     margin-top:0;
 }
 
 div#wrap {
     margin:2em auto;
-    width:34em;
+    width:38em;
 }
 
 #footer p {
-    width:34em;
-    font-size:.75em;
+    width:38em;
     margin:2em auto;
 }
 
@@ -79,10 +78,11 @@ h3 {
 a, a:visited, a:active {
     color:#3366DD;
     text-decoration:none;
+    font-weight: bold
 }
 
 a:hover {
-    text-decoration:underline;
+    color: #000000;
 }
 
 h3, h4, h5 {
@@ -117,7 +117,6 @@ label {
 }
 
 li.post, li.comment, div#comment-reply {
-    font-size:0.75em;
     margin-bottom:2em;
     padding-bottom:6em;
 }
