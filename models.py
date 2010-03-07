@@ -23,7 +23,7 @@ class Post(models.Model):
 
     def comments_open(self):
         delta = datetime.datetime.now() - self.pub_date
-        return delta.days < 14
+        return delta.days < 28
 
 #class Link(models.Model):
 #    """A link from Google Reader"""
