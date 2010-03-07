@@ -41,18 +41,31 @@ div#footer {
 
 div#super-wrap {
     line-height:2;
-    padding:3.5em 4em;
-    border-top:.5em solid #33DD66;
+    padding:2.5em 4em;
+    border-top:.5em solid #99CC99;
 }
 
 p.edit {
-    border: 1px solid #c0c0c0;
+    border: 1px solid #99CC99;
     padding: 1em;
 }
 
 div#header-bar {
     width:38em;
-    margin:0 auto 4em;
+    margin:0 auto 2em;
+}
+
+hr {
+    background-color: #99CC99;
+    color: #99CC99;
+    height: 1px;
+    border: 0;
+}
+
+li.post hr {
+    position: relative;
+    left: -42%;
+    width: 142%;
 }
 
 div#header-bar p {
@@ -78,15 +91,14 @@ h3 {
 a, a:visited, a:active {
     color:#3366DD;
     text-decoration:none;
-    font-weight: bold
 }
 
 a:hover {
     color: #000000;
+    text-decoration: underline;
 }
 
 h3, h4, h5 {
-    font-weight:bold;
 }
 
 h1 {
@@ -108,7 +120,7 @@ blockquote {
 }
 
 p {
-    margin:2em 1em 2em 0;
+    margin:2em 0;
 }
 
 label {
@@ -118,7 +130,6 @@ label {
 
 li.post, li.comment, div#comment-reply {
     margin-bottom:2em;
-    padding-bottom:6em;
 }
 
 h4 {

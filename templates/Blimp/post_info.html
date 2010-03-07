@@ -1,6 +1,7 @@
 {% load comments %}
 
 <li class="post">
+    <hr />
     <p class="post-info">{{ object.pub_date|date:"F jS, Y" }}</p>
     <h2 class="post-title {% if short %}{% if featured %}{% else %}short-title{% endif %}{% endif %}">
         <a href="{% url blimp_detail object.id %}">{{ object.title|title }}</a>
