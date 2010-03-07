@@ -1,6 +1,7 @@
 from django.shortcuts import render_to_response, get_object_or_404
 from django.template import RequestContext
 from django.conf import settings
+from django.views.generic.list_detail import object_list
 
 from models import Post
 
@@ -8,8 +9,6 @@ from models import Post
 def post_detail(request, object_id, *args, **kwargs):
     context = {}
     post = context["object"] = get_object_or_404(Post, pk=object_id)
-
-    post.content = post.content.replace("{{ MEDIA_URL }}", settings.MEDIA_URL)
 
     try:
         next_post = Post.objects.filter(is_deleted=False,
@@ -30,3 +29,4 @@ def post_detail(request, object_id, *args, **kwargs):
     return render_to_response("Blimp/post_detail.html",
                               context,
                               context_instance=RequestContext(request))
+
