@@ -160,6 +160,7 @@ div#error h3 {
 
 .post ul, .post ol {
     padding-left:2em;
+    margin: 2em 0;
 }
 
 .post ul li {
