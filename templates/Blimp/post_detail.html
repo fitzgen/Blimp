@@ -1,5 +1,6 @@
 {% extends 'Blimp/base.html' %}
-{% load comments %}
+{% load disqus_tags %}
+{% disqus_dev %}
 
 {% block title %}{{ object.title|title }}{% endblock %}
 {% block content %}
@@ -8,26 +9,9 @@
     {% include "Blimp/post_info.html" %}
     </ul>
 
-    {% get_comment_list for object as comments %}
-    <ul id="comments">
-        {% for comment in comments %}
-            {% include "Blimp/comment.html" %}
-        {% endfor %}
-    </ul>
-
-    <div id="comment-reply">
+    <div id="comments">
         <hr />
-    {% if object.comments_open %}
-        <p>I ask that you use your <strong>real name</strong>, as well as be
-        <strong>respectful and constructive</strong>, when leaving your comment
-        on my blog.</p>
-        <p>Your email will <strong>not</strong> be publicly visible.</p>
-        {% render_comment_form for object %}
-    {% else %}
-        <p><strong>Comments are closed.</strong></p>
-        <p>Comments get closed four weeks after a post is published. You can
-        still <a href="{% url blimp_contact %}">contact me</a>, though.</p>
-    {% endif %}
+        {% disqus_show_comments %}
     </div>
 
 {% endblock %}
