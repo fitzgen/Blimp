@@ -18,6 +18,9 @@ class Post(models.Model):
                                          null=True)
     pub_date = models.DateTimeField()
 
+    class Meta:
+        ordering = ["-pub_date"]
+
     def __unicode__(self):
         return unicode(self.title)
 

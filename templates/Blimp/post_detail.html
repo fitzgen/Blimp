@@ -5,13 +5,11 @@
 {% block title %}{{ object.title }}{% endblock %}
 {% block content %}
 
-    <ul class="post-list">
     {% include "Blimp/post_info.html" %}
-    </ul>
 
     <div id="comments">
-        <hr />
-        {% disqus_show_comments %}
+      <hr />
+      {% disqus_show_comments %}
     </div>
 
 {% endblock %}

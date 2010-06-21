@@ -2,27 +2,22 @@
 
 {% block content %}
 
-<ul class="post-list">
-{% for object in object_list %}
+  {% for object in object_list %}
     {% include "Blimp/post_info.html" %}
-{% endfor %}
-</ul>
+  {% endfor %}
 
-{% if has_next or has_previous %}
-<ol id="next-prev-posts">
-    {% if has_previous %}
-    <li id="next-post">
-        <a href="{% url blimp_index %}?page={{ previous }}"
-           title="Newer Posts">Newer Entries</a> &raquo
-    </li>
-    {% endif %}
-    {% if has_next %}
-    <li id="prev-post">
-        &laquo; <a href="{% url blimp_index %}?page={{ next }}"
-                   title="Older Posts">Older Entries</a>
-    </li>
-    {% endif %}
-</ol>
-{% endif %}
+  {% if has_next %}
+  <p id="prev-post" class="span-12">
+    &laquo; <a href="{% url blimp_index %}?page={{ next }}"
+               title="Older Posts">Older Entries</a>
+  </p>
+  {% endif %}
+  {% if has_previous %}
+  <p id="next-post" class="span-3">
+    <a href="{% url blimp_index %}?page={{ previous }}"
+       title="Newer Posts">Newer Entries</a> &raquo
+  </p>
+  {% endif %}
+
 
 {% endblock %}

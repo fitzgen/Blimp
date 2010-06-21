@@ -1,32 +1,28 @@
-<li class="post">
-    <hr />
-    <p class="post-info">{{ object.pub_date|date:"F jS, Y" }}</p>
-    <h2 class="post-title {% if short %}{% if featured %}{% else %}short-title{% endif %}{% endif %}">
-        <a href="{% url blimp_detail object.id %}">{{ object.title }}</a>
-    </h2>
-    <div class="post-content">
-        {#{% if not short %}#}
-            {{ object.content|safe }}
+<h2>
+  <a href="{% url blimp_detail object.id %}">{{ object.title }}</a>
+</h2>
 
-            {% if next_post or prev_post %}
-            <ol id="next-prev-posts">
-                {% if next_post %}
-                <li id="next-post">
-                    <a href="{% url blimp_detail next_post.id %}"
-                       title="{{ next_post.title|title }}">Next Entry</a> &raquo;
-                </li>
-                {% endif %}
-                {% if prev_post %}
-                <li id="prev-post">
-                    &laquo; <a href="{% url blimp_detail prev_post.id %}"
-                               title="{{ prev_post.title|title }}">Previous Entry</a>
-                </li>
-                {% endif %}
-            </ol>
-            {% endif %}
-        {#{% endif %}#}
-    </div>
+<p class="alt">{{ object.pub_date|date:"F jS, Y" }}</p>
 
-    {% include "Blimp/comments_count.html" %}
+{{ object.content|safe }}
 
-</li>
+{% if next_post or prev_post %}
+{% if prev_post %}
+<p class="span-12">
+  &laquo; <a href="{% url blimp_detail prev_post.id %}"
+             title="{{ prev_post.title|title }}">Previous Entry</a>
+</p>
+{% endif %}
+{% if next_post %}
+<p class="span-3">
+  <a href="{% url blimp_detail next_post.id %}"
+     title="{{ next_post.title|title }}">Next Entry</a> &raquo;
+</p>
+{% endif %}
+{% endif %}
+
+<div class="clear">
+  {% include "Blimp/comments_count.html" %}
+</div>
+
+<hr />

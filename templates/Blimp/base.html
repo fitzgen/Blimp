@@ -1,73 +1,102 @@
+{% load latest %}
+{% get_latest Blimp.Post 10 as recent_list %}
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>{% block full_title %}{% block title %}Nick Fitzgerald's Weblog{% endblock %} @ fitzgeraldnick.com{% endblock %}</title>
+  <head>
+    <title>{% block full_title %}{% block title %}Nick Fitzgerald's Weblog{% endblock %} @ fitzgeraldnick.com{% endblock %}</title>
 
-        <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.7.0/build/reset/reset-min.css" />
-        <link rel="stylesheet" type="text/css" href="http://fitzgeraldnick.com/weblog/static/sh_style.css" />
-        <link rel="stylesheet" type="text/css" href="http://fitzgeraldnick.com/weblog/static/base.css" />
+    <link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}sh_style.css" media="screen, projection" />
+    <link rel="stylesheet" href="{{ MEDIA_URL }}screen.css" type="text/css" media="screen, projection" />
+    <link rel="stylesheet" href="{{ MEDIA_URL }}print.css" type="text/css" media="print" />
+    <!--[if IE]><link rel="stylesheet" href="blueprint/ie.css" type="text/css" media="screen, projection" /><![endif]-->
 
-        <link rel="alternate" type="application/atom+xml"
-              href="{% url blimp_index %}feeds/latest-atom/"
-              title="Latest Entries" />
-        <link rel="alternate" type="application/atom+xml" 
-         href="http://www.google.com/reader/public/atom/user%2F06111624940130850285%2Fstate%2Fcom.google%2Fbroadcast"
-         title="Latest Reading" />
+    <link rel="alternate" type="application/atom+xml"
+          href="{% url blimp_index %}feeds/latest-atom/"
+          title="Latest Entries" />
+    <link rel="alternate" type="application/atom+xml"
+          href="http://www.google.com/reader/public/atom/user%2F06111624940130850285%2Fstate%2Fcom.google%2Fbroadcast"
+          title="Latest Links" />
 
-{% comment %}
-	<style type="text/css">
-	    {% include "static/base.css" %}
-	</style>
-{% endcomment %}
+	  <style type="text/css">
+      a, a:visited, a:active { color: #5889cc; }
+      a:hover { color: #000; }
+      code, pre { font-size: .9em; background-color: #EBF2FF !important; border: 1px solid #7AABFF; }
+      pre { padding: 1em; }
+      code { padding: 0 .2em; }
+      #head { background-color: #222; color: #ccc; }
+      #head p { margin: 0 auto; width: 950px; }
+      #head a { color: #ff6770; font-weight: bold; }
+      .recent { background: transparent url({{ MEDIA_URL }}feed.jpg) no-repeat center left; padding-left: 40px; }
+	  </style>
 
-        <meta name="verify-v1" content="tkhIz+JdwgFkL06ipDoDLFeC5ZCx7nPFxmtn63BR4Ow=" />
-    </head>
-    <body>
-        <div id="super-wrap">
-            <div id="header-bar">
-                <div id="header-container">
-                    <h1>Hello, I'm <a href="/">Nick Fitzgerald.</a></h1>
-                    <p>This is my <a href="{% url blimp_index %}">weblog</a>. 
-		    You can also check out my <a href="http://www.google.com/reader/shared/fitzgen">shared items
-                    from Reader</a> and
-                    <a href="http://github.com/fitzgen">code on GitHub</a>.
-                    Feel free to <a href="{% url blimp_contact %}">contact me</a> about whatever.</p>
-                </div>
-            </div>
-            <div id="wrap">
-                {% block content %}
-                    Stuff!
-                {% endblock %}
-            </div>
-            <div id="footer">
-                <p><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/us/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-sa/3.0/us/80x15.png" /></a><br />This <span xmlns:dc="http://purl.org/dc/elements/1.1/" href="http://purl.org/dc/dcmitype/Text" rel="dc:type">work</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://fitzgeraldnick.com/" property="cc:attributionName" rel="cc:attributionURL">Nick Fitzgerald</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/us/">Creative Commons Attribution-Noncommercial-Share Alike 3.0 United States License</a>.</p>
-            </div>
-        </div>
+  </head>
+  <body>
 
-        <a href="http://github.com/fitzgen">
-            <img style="position: absolute; top: 0; right: 0; border: 0;" 
-                 src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" 
-                 alt="Fork me on GitHub" />
+    <div id="head" class="append-bottom box">
+      <p>
+        Hello, I'm <a href="http://fitzgeraldnick.com">Nick Fitzgerald</a>. This
+        is my <a href="/weblog/">weblog</a>.  You can also check out
+        my <a href="http://www.google.com/reader/shared/fitzgen">shared items
+        from Reader</a> and
+        <a href="http://github.com/fitzgen">code on GitHub</a>.  Feel free
+        to <a href="{% url blimp_contact %}">contact me</a> about whatever.
+      </p>
+    </div>
+
+    <div class="container">
+
+      <div class="span-16 colborder">
+        {% block content %}
+        Stuff!
+        {% endblock %}
+      </div>
+
+      <div class="span-6">
+
+        <h2 class="recent"><a href="{% url blimp_index %}feeds/latest-atom">Recent Entries</a></h2>
+        <hr />
+        {% for object in recent_list %}
+        <h4><a href="{% url blimp_detail object.id %}">{{ object.title }}</a></h4>
+        <p class="alt">On {{ object.pub_date|date:"F jS, Y" }}</p>
+        <hr />
+        {% endfor %}
+      </div>
+
+      <p>
+        <a rel="license"
+           href="http://creativecommons.org/licenses/by-nc-sa/3.0/us/">
+          <img alt="Creative Commons License"
+               style="border-width:0"
+               src="{{ MEDIA_URL }}cc-license.png" />
         </a>
+      </p>
 
-        {# Google Analytics #}
-        <script type="text/javascript">
-        var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-        document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-        </script>
-        <script type="text/javascript">
-        try {
-            var pageTracker = _gat._getTracker("UA-10103011-1");
-            pageTracker._trackPageview();
-        } catch(err) {}</script>
+    </div>
 
-        {# Syntax Highlighting #}
-        <script type="text/javascript" src="http://fitzgeraldnick.com/weblog/static/sh_main.min.js"></script>
-        <script type="text/javascript" src="http://fitzgeraldnick.com/weblog/static/sh_html.min.js"></script>
-        <script type="text/javascript" src="http://fitzgeraldnick.com/weblog/static/sh_javascript.min.js"></script>
-        <script type="text/javascript" src="http://fitzgeraldnick.com/weblog/static/sh_python.js"></script>
-        <script type="text/javascript">
-            sh_highlightDocument();
-        </script>
-    </body>
+    <a href="http://github.com/fitzgen">
+      <img style="position: absolute; top: 0; right: 0; border: 0;"
+           src="http://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"
+           alt="Fork me on GitHub" />
+    </a>
+
+    {# Google Analytics #}
+    <script type="text/javascript">
+      var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+      document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    <script type="text/javascript">
+      try {
+      var pageTracker = _gat._getTracker("UA-10103011-1");
+      pageTracker._trackPageview();
+      } catch(err) {}</script>
+
+    {# Syntax Highlighting #}
+    <script type="text/javascript" src="{{ MEDIA_URL }}sh_main.min.js"></script>
+    <script type="text/javascript" src="{{ MEDIA_URL }}sh_html.min.js"></script>
+    <script type="text/javascript" src="{{ MEDIA_URL }}sh_javascript.min.js"></script>
+    <script type="text/javascript" src="{{ MEDIA_URL }}sh_python.js"></script>
+    <script type="text/javascript">
+      sh_highlightDocument();
+    </script>
+  </body>
 </html>

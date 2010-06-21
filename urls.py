@@ -10,13 +10,11 @@ feeds = {
 
 info_dict = {
     "queryset": Post.objects.filter(is_deleted=False,
-                                    is_published=True).order_by("-pub_date")
+                                    is_published=True).order_by("-pub_date"),
 }
 
 list_dict = {
-    "queryset": info_dict["queryset"],
-    "extra_context": {"short": True},
-    "paginate_by": 5
+    "paginate_by": 5,
 }
 list_dict.update(info_dict)
 
@@ -45,5 +43,5 @@ urlpatterns += patterns('',
     url(r'^feeds/(?P<url>.*)/$', 'django.contrib.syndication.views.feed', {'feed_dict': feeds}),
 
     # comments
-    url(r'^comments/', include('django.contrib.comments.urls')),
+    # url(r'^comments/', include('django.contrib.comments.urls')),
 )
