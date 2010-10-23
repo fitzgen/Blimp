@@ -5,7 +5,6 @@
   <head>
     <title>{% block full_title %}{% block title %}Nick Fitzgerald's Weblog{% endblock %} @ fitzgeraldnick.com{% endblock %}</title>
 
-    <link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}sh_style.css" media="screen, projection" />
     <link rel="stylesheet" href="{{ MEDIA_URL }}screen.css" type="text/css" media="screen, projection" />
     <link rel="stylesheet" href="{{ MEDIA_URL }}print.css" type="text/css" media="print" />
     <!--[if IE]><link rel="stylesheet" href="blueprint/ie.css" type="text/css" media="screen, projection" /><![endif]-->
@@ -18,58 +17,60 @@
           title="Latest Links" />
 
 	  <style type="text/css">
-      a, a:visited, a:active { color: #5889cc; }
-      a:hover { color: #000; }
-      code, pre { font-size: .9em; background-color: #EBF2FF !important; border: 1px solid #7AABFF; }
-      pre { padding: 1em; }
-      code { padding: 0 .2em; }
-      #head { background-color: #222; color: #ccc; }
-      #head p { margin: 0 auto; width: 950px; }
-      #head a { color: #ff6770; font-weight: bold; }
-      .recent { background: transparent url({{ MEDIA_URL }}feed.jpg) no-repeat center left; padding-left: 40px; }
+        #head a { color: #FF6770; }
+        a, a:visited, a:active { color: #5889cc; text-decoration: none; }
+        a:hover { color: #FFF; }
+        code, pre { font-size: .9em; background-color: #000 !important; }
+        pre { padding: 1.5em; }
+        code { padding: 0 .2em; }
+        .recent { background: transparent url(http://media.fitzgeraldnick.com/feed.png) no-repeat center left; padding-left: 40px; }
+        body { font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif !important; font-size: 100%; background-color: #1F222A; color: #9AA; font-style: none; }
+        .box { background-color: #1F222A; }
+        hr {  border: none; height: 0; border-bottom: 1px dotted #9AA; }
 	  </style>
 
   </head>
   <body>
 
-    <div id="head" class="append-bottom box">
-      <p>
-        Hello, I'm <a href="http://fitzgeraldnick.com">Nick Fitzgerald</a>. This
-        is my <a href="/weblog/">weblog</a>.  You can also check out
-        my <a href="http://www.google.com/reader/shared/fitzgen">shared items
-        from Reader</a> and
-        <a href="http://github.com/fitzgen">code on GitHub</a>.  Feel free
-        to <a href="{% url blimp_contact %}">contact me</a> about whatever.
-      </p>
-    </div>
-
     <div class="container">
 
-      <div class="span-16 colborder">
+      <div id="head" class="prepend-4 span-16 append-4 prepend-top append-bottom">
+        <p>
+          Hello, I'm <a href="http://fitzgeraldnick.com">Nick Fitzgerald</a>. This
+          is my <a href="/weblog/">weblog</a>.  You can also check out
+          my <a href="http://www.google.com/reader/shared/fitzgen">shared items
+            from Reader</a> and
+          <a href="http://github.com/fitzgen">code on GitHub</a>.  Feel free
+          to <a href="{% url blimp_contact %}">contact me</a> about whatever.
+        </p>
+      </div>
+
+      <div class="prepend-4 span-16 append-4">
         {% block content %}
         Stuff!
         {% endblock %}
       </div>
 
-      <div class="span-6">
+      <hr />
+
+      <div class="prepend-4 span-16 append-4">
 
         <h2 class="recent"><a href="{% url blimp_index %}feeds/latest-atom">Recent Entries</a></h2>
-        <hr />
         {% for object in recent_list %}
-        <h4><a href="{% url blimp_detail object.id %}">{{ object.title }}</a></h4>
-        <p class="alt">On {{ object.pub_date|date:"F jS, Y" }}</p>
-        <hr />
+        <p>
+          <a href="{% url blimp_detail object.id %}">{{ object.title }}</a>
+          <span class="alt">on {{ object.pub_date|date:"F jS, Y" }}</span>
+        </p>
         {% endfor %}
+        <p>
+          <a rel="license"
+             href="http://creativecommons.org/licenses/by-nc-sa/3.0/us/">
+            <img alt="Creative Commons License"
+                 style="border-width:0"
+                 src="{{ MEDIA_URL }}cc-license.png" />
+          </a>
+        </p>
       </div>
-
-      <p>
-        <a rel="license"
-           href="http://creativecommons.org/licenses/by-nc-sa/3.0/us/">
-          <img alt="Creative Commons License"
-               style="border-width:0"
-               src="{{ MEDIA_URL }}cc-license.png" />
-        </a>
-      </p>
 
     </div>
 
@@ -90,13 +91,5 @@
       pageTracker._trackPageview();
       } catch(err) {}</script>
 
-    {# Syntax Highlighting #}
-    <script type="text/javascript" src="{{ MEDIA_URL }}sh_main.min.js"></script>
-    <script type="text/javascript" src="{{ MEDIA_URL }}sh_html.min.js"></script>
-    <script type="text/javascript" src="{{ MEDIA_URL }}sh_javascript.min.js"></script>
-    <script type="text/javascript" src="{{ MEDIA_URL }}sh_python.js"></script>
-    <script type="text/javascript">
-      sh_highlightDocument();
-    </script>
   </body>
 </html>
