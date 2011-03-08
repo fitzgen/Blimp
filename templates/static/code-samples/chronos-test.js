@@ -1,5 +1,3 @@
-var ids = [];
-
 function getNumTimers () {
     return Number(document.querySelector("#num-timers").value);
 }
@@ -7,6 +5,8 @@ function getNumTimers () {
 function getTaskLength () {
     return Number(document.querySelector("#task-length").value);
 }
+
+var ids = [];
 
 function stop () {
     ids.forEach(function (id) {
@@ -16,27 +16,31 @@ function stop () {
     ids = [];
 }
 
-function withChronos () {
-    var numTimers = getNumTimers();
-    var taskLen = getTaskLength();
-    for ( var i = 0; i < numTimers; i++ ) {
-        ids.push(chronos.setInterval(function () {
-            var start = +new Date();
-            while ( +new Date() - start < taskLen ) ;
-        }, 50));
-    }
+var incrementCounter = (function () {
+    var counter = 0;
+    var counterEl = document.querySelector("#counter");
+    return function () {
+        counterEl.innerHTML = counter++;
+    };
+}());
+
+function makeTest (hostObj) {
+    return function () {
+        var numTimers = getNumTimers();
+        var taskLen = getTaskLength();
+        for ( var i = 0; i < numTimers; i++ ) {
+            ids.push(hostObj.setInterval(function () {
+                var start = +new Date();
+                while ( +new Date() - start < taskLen ) {
+                    incrementCounter();
+                }
+            }, 50));
+        }
+    };
 }
 
-function withoutChronos () {
-    var numTimers = getNumTimers();
-    var taskLen = getTaskLength();
-    for ( var i = 0; i < numTimers; i++ ) {
-        ids.push(window.setInterval(function () {
-            var start = +new Date();
-            while ( +new Date() - start < taskLen ) ;
-        }, 50));
-    }
-}
+var withChronos = makeTest(chronos);
+var withoutChronos = makeTest(window);
 
 document
     .querySelector("#with-chronos")
