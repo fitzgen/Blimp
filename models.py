@@ -11,7 +11,7 @@ class Post(models.Model):
     title = models.CharField(max_length=255)
     content = models.TextField()
     is_published = models.NullBooleanField(default=False,
-                                          blank=True,
+                                           blank=True,
                                            null=True)
     is_deleted = models.NullBooleanField(default=False,
                                          blank=True,

@@ -1,14 +1,7 @@
 {% extends 'Blimp/base.html' %}
-{% load disqus_tags %}
-{% disqus_dev %}
-
 {% block title %}{{ object.title }}{% endblock %}
 {% block content %}
 
     {% include "Blimp/post_info.html" %}
-
-    <div id="comments" class="append-bottom">
-      {% disqus_show_comments %}
-    </div>
 
 {% endblock %}

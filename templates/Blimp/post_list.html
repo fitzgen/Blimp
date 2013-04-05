@@ -1,6 +1,4 @@
 {% extends 'Blimp/base.html' %}
-{% load disqus_tags %}
-
 {% block content %}
 
   {% for object in object_list %}
@@ -19,8 +17,5 @@
        title="Newer Posts">Newer Entries</a> &raquo
   </p>
   {% endif %}
-
-  {% disqus_num_replies %}
-
 
 {% endblock %}
